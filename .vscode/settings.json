@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "tslint.autoFixOnSave": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [100]
+}
