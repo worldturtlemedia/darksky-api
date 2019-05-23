@@ -14,7 +14,7 @@
   "main": "dist/darksky-api.cjs.js",
   "module": "dist/darksky-api.es5.js",
   "browser": "dist/darksky-api.umd.min.js",
-  "typings": "dist/types/darksky-api.d.ts",
+  "typings": "dist/types/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist"
@@ -40,7 +40,7 @@
     "prebuild": "rimraf dist",
     "build": "npm run tsc && npm run rollup",
     "postbuild": "npm run docs",
-    "start": "rollup -c rollup.config.ts -w",
+    "start": "concurrently 'npm run tsc -- --watch' 'npm run rollup -- --watch'",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
@@ -53,7 +53,8 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "date-fns": "^1.30.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.6.1",
@@ -62,6 +63,7 @@
     "@types/node": "^12.0.2",
     "colors": "^1.3.3",
     "commitizen": "^3.1.1",
+    "concurrently": "^4.1.0",
     "coveralls": "^3.0.3",
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.1.0",

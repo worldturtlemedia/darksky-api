@@ -1,5 +1,7 @@
 import { Language } from './language'
 
+type TimeMachineDate = string | number | Date
+
 /**
  * Required parameters for making a Forecast request.
  *
@@ -7,11 +9,6 @@ import { Language } from './language'
  * @example https://api.darksky.net/forecast/[key]/[latitude],[longitude]
  */
 export interface ForecastRequest {
-  /**
-   * Dark Sky secret API key.
-   */
-  key: string
-
   /**
    * The latitude of a location (in decimal degrees). Positive is north, negative is south.
    */
@@ -21,15 +18,7 @@ export interface ForecastRequest {
    * The longitude of a location (in decimal degrees). Positive is east, negative is west.
    */
   longitude: number
-}
 
-/**
- * Required parameters for making a TimeMachine request.
- *
- * @see https://darksky.net/dev/docs#time-machine-request
- * @example https://api.darksky.net/forecast/[key]/[latitude],[longitude],[time]
- */
-export interface TimeMachineRequest extends ForecastRequest {
   /**
    * Specific date to get weather for.
    *
@@ -51,7 +40,17 @@ export interface TimeMachineRequest extends ForecastRequest {
    * Note: The timezone is only used for determining the time of the request;
    * the response will always be relative to the local time zone.
    */
-  time: number | string
+  time?: TimeMachineDate
+}
+
+/**
+ * Required parameters for making a TimeMachine request.
+ *
+ * @see https://darksky.net/dev/docs#time-machine-request
+ * @example https://api.darksky.net/forecast/[key]/[latitude],[longitude],[time]
+ */
+export interface TimeMachineRequest extends ForecastRequest {
+  time: TimeMachineDate
 }
 
 /**
@@ -72,10 +71,8 @@ export interface RequestParams {
   /**
    * Return weather conditions in the requested units.
    */
-  units?: string
-}
+  units?: Units
 
-export interface ForecastParams extends RequestParams {
   /**
    * When present, return hour-by-hour data for the next 168 hours, instead of the next 48.
    */

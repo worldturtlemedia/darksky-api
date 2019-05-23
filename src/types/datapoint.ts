@@ -369,14 +369,31 @@ export interface CurrentlyDataPoint extends DataPoint {
 }
 
 /**
+ * A DataBlock that is returned from the Minutely data block.
+ *
+ * @see DataBlock
+ */
+export interface MinutelyDataBlock extends DataBlock {
+  data: MinutelyDataPoint[]
+}
+
+/**
  * A DataPoint that is returned from the Minutely data block.
  *
  * @see DataPoint
  */
 export interface MinutelyDataPoint extends DataPoint {
-  summary: string
   precipIntensity: number
   precipProbability: number
+}
+
+/**
+ * A DataBlock that is returned from the Hourly data block.
+ *
+ * @see DataBlock
+ */
+export interface HourlyDataBlock extends DataBlock {
+  data: HourlyDataPoint[]
 }
 
 /**
@@ -400,6 +417,15 @@ export interface HourlyDataPoint extends DataPoint {
   uvIndex: number
   visibility: number
   ozone: number
+}
+
+/**
+ * A DataBlock that is returned from the Daily data block.
+ *
+ * @see DataBlock
+ */
+export interface DailyDataBlock extends DataBlock {
+  data: DailyDataPoint[]
 }
 
 /**
