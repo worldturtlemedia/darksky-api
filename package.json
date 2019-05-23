@@ -29,7 +29,10 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "lint": "tslint --project tsconfig.test.json -t codeFrame --fix",
+    "lint:src": "npm run lint -- --project tsconfig.json 'src/**/*.ts'",
+    "lint:test": "npm run lint -- --project tsconfig.test.json 'test/**/*.ts'",
+    "lint:all": "npm run lint:src && npm run lint:test",
     "predocs": "rimraf docs",
     "docs": "typedoc --out docs --excludeExternals --target es6 --includeDeclarations --excludePrivate --mode modules src",
     "tsc": "tsc --module commonjs",
@@ -103,8 +106,12 @@
       "prettier --write",
       "git add"
     ],
-    "{src,test}/**/*.ts": [
-      "tslint  --project tsconfig.json --fix",
+    "src/**/*.ts": [
+      "npm run lint -- --project tsconfig.json",
+      "git add"
+    ],
+    "test/**/*.ts": [
+      "npm run lint -- --project tsconfig.test.json",
       "git add"
     ]
   },
