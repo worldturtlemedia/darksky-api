@@ -2,8 +2,8 @@ import format from 'date-fns/format'
 import isDate from 'date-fns/is_date'
 import isValid from 'date-fns/is_valid'
 
+import { NumberString, TimeMachineRequest } from '../types'
 import { badRequest } from './errors'
-import { TimeMachineRequest } from './types'
 
 /**
  * Date format string for formatting a Date into a string that DarkSky expects.
@@ -47,7 +47,13 @@ export function isString(value: any): boolean {
   return typeof value === 'string' || value instanceof String
 }
 
-export function isNumber(value: number | string): boolean {
+/**
+ * Check if value is a number, or if a string can be parsed into a number.
+ *
+ * @param value Value to check.
+ * @returns `true` if it is a valid number.
+ */
+export function isNumber(value: NumberString): boolean {
   if (Number.isInteger(value as number)) return true
 
   return isString(value) && Number.isInteger(parseInt(value as string, 10))

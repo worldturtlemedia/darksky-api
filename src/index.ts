@@ -1,5 +1,4 @@
 export * from './types'
 export * from './client'
-export { DarkSky, DarkSkyOptions } from './darksky'
-export * from './chain'
-export { DARKSKY_DATE_FORMAT, formatDateString } from './util'
+export * from './wrapper'
+export * from './misc'

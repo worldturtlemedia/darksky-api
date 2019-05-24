@@ -1,4 +1,4 @@
-import { createRequestChain, Exclude, Forecast, Units } from 'darksky-api'
+import { createRequestChain, DarkSky, Exclude, Forecast, Units } from 'darksky-api'
 import * as yargs from 'yargs'
 
 const args = yargs.argv
@@ -10,6 +10,7 @@ const latitude = (args.lat as number) || 42.984
 const longitude = (args.long as number) || -81.245
 const targetDate = new Date(1558000000 * 1000)
 
+// Chain method
 createRequestChain(KEY, latitude, longitude)
   .extendHourly()
   .exclude(Exclude.CURRENTLY, Exclude.MINUTELY, Exclude.HOURLY)
@@ -20,6 +21,15 @@ createRequestChain(KEY, latitude, longitude)
     console.log(`At ${targetDate}`)
     logResult(result)
   })
+  .catch(x => console.error(x.response ? x.response.data : x))
+
+// Using class
+new DarkSky(KEY)
+  .chain(latitude, longitude)
+  .params({ units: Units.CA })
+  .onlyDaily()
+  .execute()
+  .then(logResult)
   .catch(x => console.error(x.response ? x.response.data : x))
 
 function logResult(result: Forecast) {

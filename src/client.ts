@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
-import { badRequest } from './errors'
+import { badRequest } from './misc/errors'
+import { formatTimeMachineTime, isNumber } from './misc/util'
 import { Forecast, ForecastRequest, RequestParams, TimeMachineRequest } from './types'
-import { formatTimeMachineTime, isNumber } from './util'
 
 /**
  * Base url for the DarkSky API.
