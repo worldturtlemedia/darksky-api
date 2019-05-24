@@ -59,6 +59,10 @@ export interface Forecast {
   headers: ResponseHeaders
 }
 
+export interface CurrentForecast extends Forecast {
+  currently: CurrentlyDataPoint
+}
+
 /**
  * The API will set the following HTTP response headers.
  *

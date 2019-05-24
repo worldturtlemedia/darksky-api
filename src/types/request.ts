@@ -1,6 +1,12 @@
 import { Language } from './language'
 
-type TimeMachineDate = string | number | Date
+export type NumberString = number | string
+
+export type Latitude = NumberString
+
+export type Longitude = NumberString
+
+export type TimeMachineDate = string | number | Date
 
 /**
  * Required parameters for making a Forecast request.
@@ -12,12 +18,12 @@ export interface ForecastRequest {
   /**
    * The latitude of a location (in decimal degrees). Positive is north, negative is south.
    */
-  latitude: number
+  latitude: Latitude
 
   /**
    * The longitude of a location (in decimal degrees). Positive is east, negative is west.
    */
-  longitude: number
+  longitude: Longitude
 
   /**
    * Specific date to get weather for.
@@ -92,6 +98,14 @@ export enum Exclude {
   ALERTS = 'alerts',
   FLAGS = 'flags'
 }
+
+export const ONLY_CURRENTLY = [Exclude.DAILY, Exclude.MINUTELY, Exclude.HOURLY]
+
+export const ONLY_DAILY = [Exclude.CURRENTLY, Exclude.MINUTELY, Exclude.HOURLY]
+
+export const ONLY_MINUTELY = [Exclude.CURRENTLY, Exclude.DAILY, Exclude.HOURLY]
+
+export const ONLY_HOURLY = [Exclude.CURRENTLY, Exclude.MINUTELY, Exclude.DAILY]
 
 /**
  * Return weather conditions in the requested units.

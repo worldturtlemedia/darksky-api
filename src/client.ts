@@ -1,7 +1,8 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
+import { badRequest } from './errors'
 import { Forecast, ForecastRequest, RequestParams, TimeMachineRequest } from './types'
-import { formatTimeMachineTime } from './util'
+import { formatTimeMachineTime, isNumber } from './util'
 
 /**
  * Base url for the DarkSky API.
@@ -92,6 +93,10 @@ async function doRequest<R extends Forecast>(
  * @returns URL string for making the request.
  */
 function createAPIUrl(token: string, { latitude, longitude, ...rest }: ForecastRequest): string {
+  if (!isNumber(latitude) || !isNumber(longitude)) {
+    throw badRequest('Latitude and Longitude need to be a valid number!')
+  }
+
   const time = formatTimeMachineTime(rest as TimeMachineRequest)
   return `${API_BASE}/${token}/${latitude},${longitude}${time ? `,${time}` : ''}`
 }
