@@ -56,11 +56,38 @@ export interface Forecast {
    */
   flags?: Flags
 
+  /**
+   * Response headers set by DarkSky API.
+   */
   headers: ResponseHeaders
 }
 
+/**
+ * Forecast object with a required `currently` property.
+ */
 export interface CurrentForecast extends Forecast {
   currently: CurrentlyDataPoint
+}
+
+/**
+ * Forecast object with a required `daily` property.
+ */
+export interface WeekForecast extends Forecast {
+  daily: DailyDataBlock
+}
+
+/**
+ * Forecast object with a required `hourly` property.
+ */
+export interface DayForecast extends Forecast {
+  hourly: HourlyDataBlock
+}
+
+/**
+ * Forecast object with a required `minutely` property.
+ */
+export interface HourForecast extends Forecast {
+  minutely: MinutelyDataBlock
 }
 
 /**
