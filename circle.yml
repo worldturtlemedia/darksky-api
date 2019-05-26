@@ -62,8 +62,11 @@ jobs:
           name: Build library
           command: yarn build
       - run:
-          name: Deploy
-          command: yarn build
+          name: Deploy release
+          command: yarn semantic-release
+      - run:
+          name: Deploy docs
+          command: yarn deploy-docs
 
 workflows:
   version: 2
