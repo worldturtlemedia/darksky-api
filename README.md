@@ -4,7 +4,7 @@ A wrapper for [DarkSky API](https://darksky.net/dev/docs) written in TypeScript.
 
 ![CircleCI branch](https://img.shields.io/circleci/project/github/worldturtlemedia/darksky-api/master.svg?label=release%20build) ![CircleCI (all branches)](https://img.shields.io/circleci/project/github/worldturtlemedia/darksky-api.svg) [![Coverage Status](https://coveralls.io/repos/github/worldturtlemedia/darksky-api/badge.svg?branch=master)](https://coveralls.io/github/worldturtlemedia/darksky-api?branch=master)
 
-[![npm version](https://badge.fury.io/js/darksky-api.svg)](https://badge.fury.io/js/dark-sky-api) ![GitHub](https://img.shields.io/github/license/worldturtlemedia/dark-sky-api.svg) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/dark-sky-api.svg)
+[![npm version](https://badge.fury.io/js/darkskyapi-ts.svg)](https://badge.fury.io/js/dark-sky-api) ![GitHub](https://img.shields.io/github/license/worldturtlemedia/darksky-api.svg) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/darkskyapi-ts.svg)
 
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/) [![dependencies Status](https://david-dm.org/worldturtlemedia/darksky-api/status.svg)](https://david-dm.org/worldturtlemedia/darksky-api) [![devDependencies Status](https://david-dm.org/worldturtlemedia/darksky-api/dev-status.svg)](https://david-dm.org/worldturtlemedia/darksky-api?type=dev)
 
@@ -29,7 +29,7 @@ DarkSky explicitly forbids CORS so using `dark-sky-api` in the browser will not 
 Add using yarn or npm
 
 ```bash
-yarn add dark-sky-api
+yarn add darkskyapi-ts
 ```
 
 ## Usage
