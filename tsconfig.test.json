@@ -4,7 +4,8 @@
     "module": "commonjs",
     "inlineSourceMap": true,
     "inlineSources": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false
   },
   "include": ["src", "test"]
 }

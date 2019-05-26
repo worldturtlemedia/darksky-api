@@ -2,14 +2,12 @@ import axios from 'axios'
 import * as format from 'date-fns/format'
 
 import { DARKSKY_DATE_FORMAT, Exclude, Language, Units } from '../src'
-import { createClient } from '../src/client'
+import { API_BASE, createClient } from '../src/client'
 import { AxiosMock } from './__mocks__/axios'
 
 jest.mock('axios')
 
 const mockAxios = (axios as unknown) as AxiosMock
-
-const API_BASE = 'https://api.darksky.net/forecast'
 
 describe('Client', () => {
   beforeEach(() => {
@@ -24,7 +22,6 @@ describe('Client', () => {
 
   it('should throw an error if latitude is not supplied', async () => {
     const client = createClient('token')
-
     await expect(client.forecast({ longitude: 42 } as any)).rejects.toThrow()
   })
 

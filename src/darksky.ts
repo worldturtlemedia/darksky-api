@@ -1,14 +1,15 @@
-import { notFound } from '../misc/errors'
+import { notFound } from './misc/errors'
 import {
   CurrentForecast,
   DayForecast,
   HourForecast,
   NumberString,
   RequestParams,
+  TimeMachineDate,
   WeekForecast
-} from '../types'
-import { DarkSkyBase } from './base'
-import { createRequestChain } from './chain'
+} from './types'
+import { DarkSkyBase } from './wrapper/base'
+import { createRequestChain } from './wrapper/chain'
 
 /**
  * A `class` based wrapper for a `DarkSkyClient`
@@ -50,7 +51,10 @@ export class DarkSky extends DarkSkyBase {
    * @param params Optional query params for the request.
    */
   chain(latitude: NumberString, longitude: NumberString, params?: RequestParams) {
-    return createRequestChain(this.token, latitude, longitude, params)
+    return createRequestChain(this.token, latitude, longitude, {
+      ...this.requestParams,
+      ...(params || {})
+    })
   }
 
   /**
@@ -59,10 +63,27 @@ export class DarkSky extends DarkSkyBase {
    * @param latitude The latitude of a location (in decimal degrees).
    * @param longitude The longitude of a location (in decimal degrees).
    * @param params Optional query params for the request.
+   * @returns Current forecast.
    */
   forecast(latitude: number, longitude: number, params?: RequestParams) {
     return this.client.forecast(
       { latitude, longitude },
+      { ...this.requestParams, ...(params || {}) }
+    )
+  }
+
+  /**
+   *  Gets the forecast for a specified date.
+   *
+   * @param latitude The latitude of a location (in decimal degrees).
+   * @param longitude The longitude of a location (in decimal degrees).
+   * @param time Specific time to get the weather for.
+   * @param params Optional query params for the request.
+   * @returns Forecast for the specified date.
+   */
+  timeMachine(latitude: number, longitude: number, time: TimeMachineDate, params?: RequestParams) {
+    return this.client.timeMachine(
+      { latitude, longitude, time },
       { ...this.requestParams, ...(params || {}) }
     )
   }

@@ -38,14 +38,12 @@ export class DarkSkyRequestChain extends DarkSkyBase {
   /**
    * Set multiple request query parameters at once using a RequestParams.
    *
-   * * Note: This will override any current settings in the `requestParams` object.
-   *
    * @param params Params to override the current Query parameters.
    * @returns Chain
    */
   params(params?: RequestParams) {
     if (params) {
-      this.requestParams = params
+      this.requestParams = { ...this.requestParams, ...params }
     }
 
     return this
@@ -134,10 +132,14 @@ export class DarkSkyRequestChain extends DarkSkyBase {
   /**
    * Shorthand for excluding all datablocks except for the Hourly.
    *
+   * @param extend If defined will call `extendHourly`.
    * @returns Chain
    */
-  onlyHourly() {
+  onlyHourly(extend?: boolean) {
     this.requestParams.exclude = this.excludeAllBut(Exclude.HOURLY)
+    if (typeof extend !== 'undefined') {
+      this.extendHourly(extend)
+    }
     return this
   }
 
@@ -168,7 +170,7 @@ export class DarkSkyRequestChain extends DarkSkyBase {
    * @param include Exclude all datablocks except for this one.
    */
   private excludeAllBut(include: Exclude): Exclude[] {
-    return [...(this.requestParams.exclude || []), ...EXCLUDE_ALL.filter(x => x !== include)]
+    return [...this.requestParams.exclude!, ...EXCLUDE_ALL.filter(x => x !== include)]
   }
 }
 

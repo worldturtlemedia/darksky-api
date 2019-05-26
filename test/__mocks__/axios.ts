@@ -38,8 +38,8 @@ axiosMock._setMockResponse = (response: any) => {
 export interface AxiosMock {
   reset: () => void
   get: jest.Mock
-  __setMockError: (err: any) => void
-  __setMockResponse: (response: any) => void
+  _setMockError: (err: any) => void
+  _setMockResponse: (response: any) => void
 }
 
 export default axiosMock
