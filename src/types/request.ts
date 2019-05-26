@@ -146,7 +146,7 @@ export enum Units {
    * Same as [[SI]], except that nearestStormDistance and visibility are in miles,
    * and windSpeed and windGust in miles per hour.
    */
-  UK = 'uk2',
+  UK = 'uk',
 
   /**
    * Imperial units.

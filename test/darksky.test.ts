@@ -178,7 +178,9 @@ describe('DarkSky', () => {
     })
 
     it('should extend the daily forecast', async () => {
-      await expect(new DarkSky('token', { extendHourly: true }).day(42, 24)).rejects.toThrow()
+      await expect(
+        new DarkSky('token', { extendHourly: true, units: Units.UK }).day(42, 24)
+      ).rejects.toThrow()
 
       expect(mockAxios.get).toBeCalledWith(expect.stringContaining(`extend=${Extend.HOURLY}`), {})
     })

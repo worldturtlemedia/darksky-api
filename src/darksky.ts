@@ -51,7 +51,7 @@ export class DarkSky extends DarkSkyBase {
    * @param params Optional query params for the request.
    */
   chain(latitude: NumberString, longitude: NumberString, params?: RequestParams) {
-    return createRequestChain(this.token, latitude, longitude, {
+    return createRequestChain(this.token, latitude, longitude).params({
       ...this.requestParams,
       ...(params || {})
     })
@@ -100,8 +100,7 @@ export class DarkSky extends DarkSkyBase {
    * @throws HttpException if `Forecast.currently` doesn't exist.
    */
   async current(latitude: number, longitude: number, params?: RequestParams) {
-    const result = await this.chain(latitude, longitude, this.requestParams)
-      .params(params)
+    const result = await this.chain(latitude, longitude, params)
       .onlyCurrently()
       .execute()
 
@@ -122,8 +121,7 @@ export class DarkSky extends DarkSkyBase {
    * @throws HttpException if [[Forecast.daily]] doesn't exist.
    */
   async week(latitude: number, longitude: number, params?: RequestParams) {
-    const result = await this.chain(latitude, longitude, this.requestParams)
-      .params(params)
+    const result = await this.chain(latitude, longitude, params)
       .onlyDaily()
       .execute()
 
@@ -144,8 +142,7 @@ export class DarkSky extends DarkSkyBase {
    * @throws HttpException if [[Forecast.hourly]] doesn't exist.
    */
   async day(latitude: number, longitude: number, params?: RequestParams) {
-    const result = await this.chain(latitude, longitude, this.requestParams)
-      .params(params)
+    const result = await this.chain(latitude, longitude, params)
       .onlyHourly()
       .execute()
 
@@ -166,8 +163,7 @@ export class DarkSky extends DarkSkyBase {
    * @throws HttpException if [[Forecast.Minutely]] doesn't exist.
    */
   async hour(latitude: number, longitude: number, params?: RequestParams) {
-    const result = await this.chain(latitude, longitude, this.requestParams)
-      .params(params)
+    const result = await this.chain(latitude, longitude, params)
       .onlyMinutely()
       .execute()
 

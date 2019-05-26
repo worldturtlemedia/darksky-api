@@ -29,7 +29,7 @@ export class DarkSkyRequestChain extends DarkSkyBase {
     token: string,
     latitude: NumberString,
     longitude: NumberString,
-    options?: Partial<DarkSkyOptions>
+    options?: DarkSkyOptions
   ) {
     super(token, options)
     this.request = { latitude, longitude }
@@ -170,7 +170,7 @@ export class DarkSkyRequestChain extends DarkSkyBase {
    * @param include Exclude all datablocks except for this one.
    */
   private excludeAllBut(include: Exclude): Exclude[] {
-    return [...this.requestParams.exclude!, ...EXCLUDE_ALL.filter(x => x !== include)]
+    return [...(this.requestParams.exclude || []), ...EXCLUDE_ALL.filter(x => x !== include)]
   }
 }
 
@@ -197,7 +197,7 @@ export function createRequestChain(
   token: string,
   latitude: NumberString,
   longitude: NumberString,
-  options?: Partial<DarkSkyOptions>
+  options?: DarkSkyOptions
 ) {
   return new DarkSkyRequestChain(token, latitude, longitude, options)
 }

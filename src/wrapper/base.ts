@@ -12,28 +12,28 @@ export interface DarkSkyOptions {
    *
    * @default Units.AUTO
    */
-  units: Units
+  units?: Units
 
   /**
    * Return summary properties in the desired language.
    *
    * @default Language.ENGLISH
    */
-  lang: Language
+  lang?: Language
 
   /**
    * When true, return hour-by-hour data for the next 168 hours, instead of the next 48.
    *
    * @default false
    */
-  extendHourly: boolean
+  extendHourly?: boolean
 
   /**
    * Exclude some number of data blocks from the API response.
    *
    * @default []
    */
-  exclude: Exclude[]
+  exclude?: Exclude[]
 
   /**
    * Optional config to change the way axios makes the request.
@@ -74,9 +74,9 @@ export class DarkSkyBase {
       units = Units.AUTO,
       lang = Language.ENGLISH,
       extendHourly = false,
-      exclude = [],
+      exclude,
       requestConfig
-    }: Partial<DarkSkyOptions> = {}
+    }: DarkSkyOptions = {}
   ) {
     this.token = token
     this.client = createClient(token, requestConfig)
