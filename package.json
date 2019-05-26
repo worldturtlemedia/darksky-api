@@ -48,8 +48,7 @@
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "commit": "git-cz",
-    "semantic-release": "semantic-release",
-    "precommit": "lint-staged"
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "axios": "^0.18.0",
