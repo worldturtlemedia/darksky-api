@@ -1,11 +1,11 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import sourceMaps from 'rollup-plugin-sourcemaps'
 import camelCase from 'lodash.camelcase'
-import typescript from 'rollup-plugin-typescript2'
+import commonjs from 'rollup-plugin-commonjs'
 import json from 'rollup-plugin-json'
 import builtins from 'rollup-plugin-node-builtins'
 import nodeGlobals from 'rollup-plugin-node-globals'
+import resolve from 'rollup-plugin-node-resolve'
+import sourceMaps from 'rollup-plugin-sourcemaps'
+import typescript from 'rollup-plugin-typescript2'
 import { uglify } from 'rollup-plugin-uglify'
 
 const pkg = require('./package.json')

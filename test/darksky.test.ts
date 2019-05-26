@@ -1,5 +1,5 @@
 import axios from 'axios'
-import * as format from 'date-fns/format'
+import format from 'date-fns/format'
 
 import { DarkSky, DARKSKY_DATE_FORMAT, Exclude, Extend, Forecast, Language, Units } from '../src'
 import { AxiosMock } from './__mocks__/axios'

@@ -1,6 +1,6 @@
-import * as format from 'date-fns/format'
-import * as isDate from 'date-fns/is_date'
-import * as isValid from 'date-fns/is_valid'
+import format from 'date-fns/format'
+import isDate from 'date-fns/is_date'
+import isValid from 'date-fns/is_valid'
 
 import { NumberString, TimeMachineRequest } from '../types'
 import { badRequest } from './errors'

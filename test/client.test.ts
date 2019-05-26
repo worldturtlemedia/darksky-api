@@ -1,5 +1,5 @@
 import axios from 'axios'
-import * as format from 'date-fns/format'
+import format from 'date-fns/format'
 
 import { DARKSKY_DATE_FORMAT, Exclude, Language, Units } from '../src'
 import { API_BASE, createClient } from '../src/client'
