@@ -29,7 +29,7 @@ export class DarkSkyRequestChain extends DarkSkyBase {
     token: string,
     latitude: NumberString,
     longitude: NumberString,
-    options?: Partial<DarkSkyOptions>
+    options?: DarkSkyOptions
   ) {
     super(token, options)
     this.request = { latitude, longitude }
@@ -38,14 +38,12 @@ export class DarkSkyRequestChain extends DarkSkyBase {
   /**
    * Set multiple request query parameters at once using a RequestParams.
    *
-   * * Note: This will override any current settings in the `requestParams` object.
-   *
    * @param params Params to override the current Query parameters.
    * @returns Chain
    */
   params(params?: RequestParams) {
     if (params) {
-      this.requestParams = params
+      this.requestParams = { ...this.requestParams, ...params }
     }
 
     return this
@@ -107,7 +105,7 @@ export class DarkSkyRequestChain extends DarkSkyBase {
    * @param exclude List of datablocks to exclude from the response.
    */
   exclude(...exclude: Exclude[]) {
-    this.requestParams.exclude = [...this.requestParams.exclude!, ...exclude]
+    this.requestParams.exclude = [...(this.requestParams.exclude || []), ...exclude]
     return this
   }
 
@@ -122,6 +120,16 @@ export class DarkSkyRequestChain extends DarkSkyBase {
   }
 
   /**
+   * Helper function for excluding the `currently` data block.
+   *
+   * @returns Chain
+   */
+  excludeCurrently() {
+    this.addExlude(Exclude.CURRENTLY)
+    return this
+  }
+
+  /**
    * Shorthand for excluding all datablocks except for the Minutely.
    *
    * @returns Chain
@@ -132,12 +140,36 @@ export class DarkSkyRequestChain extends DarkSkyBase {
   }
 
   /**
-   * Shorthand for excluding all datablocks except for the Hourly.
+   * Helper function for excluding the `minutely` data block.
    *
    * @returns Chain
    */
-  onlyHourly() {
+  excludeMinutely() {
+    this.addExlude(Exclude.MINUTELY)
+    return this
+  }
+
+  /**
+   * Shorthand for excluding all datablocks except for the Hourly.
+   *
+   * @param extend If defined will call `extendHourly`.
+   * @returns Chain
+   */
+  onlyHourly(extend?: boolean) {
     this.requestParams.exclude = this.excludeAllBut(Exclude.HOURLY)
+    if (typeof extend !== 'undefined') {
+      this.extendHourly(extend)
+    }
+    return this
+  }
+
+  /**
+   * Helper function for excluding the `hourly` data block.
+   *
+   * @returns Chain
+   */
+  excludeHourly() {
+    this.addExlude(Exclude.HOURLY)
     return this
   }
 
@@ -148,6 +180,36 @@ export class DarkSkyRequestChain extends DarkSkyBase {
    */
   onlyDaily() {
     this.requestParams.exclude = this.excludeAllBut(Exclude.DAILY)
+    return this
+  }
+
+  /**
+   * Helper function for excluding the `daily` data block.
+   *
+   * @returns Chain
+   */
+  excludeDaily() {
+    this.addExlude(Exclude.DAILY)
+    return this
+  }
+
+  /**
+   * Helper function for excluding the `flags` data block.
+   *
+   * @returns Chain
+   */
+  excludeFlags() {
+    this.addExlude(Exclude.FLAGS)
+    return this
+  }
+
+  /**
+   * Helper function for excluding the `alerts` data block.
+   *
+   * @returns Chain
+   */
+  excludeAlerts() {
+    this.addExlude(Exclude.ALERTS)
     return this
   }
 
@@ -169,6 +231,14 @@ export class DarkSkyRequestChain extends DarkSkyBase {
    */
   private excludeAllBut(include: Exclude): Exclude[] {
     return [...(this.requestParams.exclude || []), ...EXCLUDE_ALL.filter(x => x !== include)]
+  }
+
+  private addExlude(exclude: Exclude) {
+    if (!this.requestParams.exclude) this.requestParams.exclude = []
+
+    if (!this.requestParams.exclude.includes(exclude)) {
+      this.requestParams.exclude.push(exclude)
+    }
   }
 }
 
@@ -195,7 +265,7 @@ export function createRequestChain(
   token: string,
   latitude: NumberString,
   longitude: NumberString,
-  options?: Partial<DarkSkyOptions>
+  options?: DarkSkyOptions
 ) {
   return new DarkSkyRequestChain(token, latitude, longitude, options)
 }

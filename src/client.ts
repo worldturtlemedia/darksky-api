@@ -7,9 +7,10 @@ import { Forecast, ForecastRequest, RequestParams, TimeMachineRequest } from './
 /**
  * Base url for the DarkSky API.
  *
+ * @private
  * @see https://darksky.net/dev/docs
  */
-const API_BASE = 'https://api.darksky.net/forecast'
+export const API_BASE = 'https://api.darksky.net/forecast'
 
 /**
  * Basic client definintion for interacting with the DarkSky API.
@@ -53,8 +54,8 @@ export function createClient(
   requestConfig: AxiosRequestConfig = {}
 ): DarkSkyClient {
   return {
-    forecast: (request: ForecastRequest, params: RequestParams = {}) =>
-      doRequest(apiToken, request, params, requestConfig),
+    forecast: ({ latitude, longitude }: ForecastRequest, params: RequestParams = {}) =>
+      doRequest(apiToken, { latitude, longitude }, params, requestConfig),
     timeMachine: (request: TimeMachineRequest, params: RequestParams = {}) =>
       doRequest(apiToken, request, params, requestConfig)
   }
@@ -116,6 +117,7 @@ function createAPIUrl(token: string, { latitude, longitude, ...rest }: ForecastR
 function createQueryParams(obj: RequestParams) {
   const params = Object.keys(obj)
     .filter(key => typeof obj[key] !== 'undefined' && obj[key] !== null)
+    .filter(key => (Array.isArray(obj[key]) ? obj[key].length : true))
     .map(key => {
       const value = Array.isArray(obj[key]) ? obj[key].join(',') : (obj[key] as string)
       return `${key}=${encodeURIComponent(value)}`

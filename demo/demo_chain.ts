@@ -21,7 +21,7 @@ createRequestChain(KEY, latitude, longitude)
     console.log(`At ${targetDate}`)
     logResult(result)
   })
-  .catch(x => console.error(x.response ? x.response.data : x))
+  .catch(console.error)
 
 // Using class
 new DarkSky(KEY)
@@ -30,7 +30,7 @@ new DarkSky(KEY)
   .onlyDaily()
   .execute()
   .then(logResult)
-  .catch(x => console.error(x.response ? x.response.data : x))
+  .catch(console.error)
 
 function logResult(result: Forecast) {
   console.log(`API Calls: ${result.headers['x-forecast-api-calls']}`)

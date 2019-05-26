@@ -2,8 +2,11 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs",
+    "target": "esnext",
     "inlineSourceMap": true,
-    "inlineSources": true
+    "inlineSources": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": ["src", "test"]
 }

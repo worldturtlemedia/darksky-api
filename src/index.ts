@@ -1,4 +1,5 @@
 export * from './types'
-export * from './client'
+export { createClient, DarkSkyClient } from './client'
+export * from './darksky'
 export * from './wrapper'
 export * from './misc'
