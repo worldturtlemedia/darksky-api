@@ -18,6 +18,12 @@ If there are any features you would like, please feel free to open up an issue.
 
 I did my best to correctly add types for all of the supported endpoints. However if you notice an incorrect payload type, or some missing properties, _please_ open up an issue, or submit a pull request.
 
+## Warning
+
+DarkSky explicitly forbids CORS so using `darksky-api` in the browser will not work, and you should instead setup a proxy server and run it on the background.
+
+> To prevent API key abuse, you should set up a proxy server to make calls to our API behind the scenes. Then you can provide forecasts to your clients without exposing your API key.
+
 ## Installation
 
 Add using yarn or npm

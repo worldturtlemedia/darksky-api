@@ -13,7 +13,6 @@
   ],
   "main": "dist/darksky-api.cjs.js",
   "module": "dist/darksky-api.es5.js",
-  "browser": "dist/darksky-api.umd.min.js",
   "typings": "dist/types/index.d.ts",
   "sideEffects": false,
   "files": [

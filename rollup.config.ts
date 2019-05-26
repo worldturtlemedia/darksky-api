@@ -1,29 +1,10 @@
-import camelCase from 'lodash.camelcase'
 import commonjs from 'rollup-plugin-commonjs'
 import json from 'rollup-plugin-json'
-import builtins from 'rollup-plugin-node-builtins'
-import nodeGlobals from 'rollup-plugin-node-globals'
 import resolve from 'rollup-plugin-node-resolve'
 import sourceMaps from 'rollup-plugin-sourcemaps'
 import typescript from 'rollup-plugin-typescript2'
-import { uglify } from 'rollup-plugin-uglify'
 
 const pkg = require('./package.json')
-
-const libraryName = pkg.name
-
-const browserPlugins = [
-  resolve({ browser: true }),
-  commonjs(),
-  json(),
-  nodeGlobals(),
-  builtins(),
-  typescript({
-    useTsconfigDeclarationDir: true,
-    exclude: ['src/__mocks__/*.ts']
-  }),
-  sourceMaps()
-]
 
 const nodePlugins = [
   json(),
@@ -41,26 +22,6 @@ const commonConfig = {
   }
 }
 
-const browserConfig = {
-  ...commonConfig,
-  output: {
-    file: pkg.browser.replace('.min.js', '.js'),
-    name: camelCase(libraryName),
-    format: 'umd',
-    sourcemap: true
-  },
-  plugins: [...browserPlugins, sourceMaps()]
-}
-
-const minifiedBrowserConfig = {
-  ...commonConfig,
-  output: {
-    ...browserConfig.output,
-    file: pkg.browser
-  },
-  plugins: [...browserPlugins, uglify(), sourceMaps()]
-}
-
 const nodeConfig = {
   ...commonConfig,
   output: [
@@ -71,4 +32,4 @@ const nodeConfig = {
   external: ['os', 'http', 'https', 'url', 'assert', 'stream', 'tty', 'util', 'zlib']
 }
 
-export default [browserConfig, minifiedBrowserConfig, nodeConfig]
+export default [nodeConfig]
