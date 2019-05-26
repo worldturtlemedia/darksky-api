@@ -23,7 +23,7 @@ I did my best to correctly add types for all of the supported endpoints. However
 Add using yarn or npm
 
 ```bash
-yarn add darkskyy-api
+yarn add darksky-api
 ```
 
 ## Usage
@@ -59,9 +59,9 @@ Either be a UNIX timestamp or a string formatted as follows:
 
 The library will try it's best to parse the Date string you pass in, so you don't _need_ to supply it in the above format. But for safety its probably best.
 
-Timezone should either be omitted (to refer to local time for the location being requested),
-`Z` (referring to GMT time), or +[HH][mm] or -[HH][mm] for an offset from GMT
-in hours and minutes.
+> Timezone should either be omitted (to refer to local time for the location being requested),
+> `Z` (referring to GMT time), or +[HH][mm] or -[HH][mm] for an offset from GMT
+> in hours and minutes.
 
 ## 1. DarkSky class
 

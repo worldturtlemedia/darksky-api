@@ -1,6 +1,7 @@
 import format from 'date-fns/format'
 import isDate from 'date-fns/is_date'
 import isValid from 'date-fns/is_valid'
+import parse from 'date-fns/parse'
 
 import { NumberString, TimeMachineRequest } from '../types'
 import { badRequest } from './errors'
@@ -16,8 +17,8 @@ export const DARKSKY_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ssZZ'
  * @param date Date string or object to format using [[DARKSKY_DATE_FORMAT]].
  */
 export function formatDateString(date: string | Date): string {
-  const target = isDate(date) ? (date as Date) : new Date(date)
-  if (!isValid(target)) {
+  const target: Date = isString(date) ? parse(date) : (date as Date)
+  if (!isDate(target) || !isValid(target)) {
     throw badRequest(`'${target}' is not a valid Date object.`)
   }
 
@@ -34,9 +35,10 @@ export function formatDateString(date: string | Date): string {
  */
 export function formatTimeMachineTime({ time }: TimeMachineRequest) {
   if (!time) return undefined
-  else if (Number.isInteger(time as number)) {
+  else if (isString(time) || isDate(time)) return formatDateString(time as string | Date)
+  else if (isNumber(time as number)) {
     return formatDateString(new Date((time as number) * 1000))
-  } else if (isString(time) || isDate(time)) return formatDateString(time as string | Date)
+  }
 }
 
 /**
