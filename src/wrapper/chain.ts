@@ -236,7 +236,9 @@ export class DarkSkyRequestChain extends DarkSkyBase {
   private addExlude(exclude: Exclude) {
     if (!this.requestParams.exclude) this.requestParams.exclude = []
 
-    this.requestParams.exclude.push(exclude)
+    if (!this.requestParams.exclude.includes(exclude)) {
+      this.requestParams.exclude.push(exclude)
+    }
   }
 }
 
