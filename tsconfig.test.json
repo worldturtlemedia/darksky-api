@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "inlineSourceMap": true,
-    "inlineSources": true
+    "inlineSources": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src", "test"]
 }

@@ -43,7 +43,7 @@
     "postbuild": "npm run docs",
     "start": "concurrently 'npm run tsc -- --watch' 'npm run rollup -- --watch'",
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:dev": "jest --watch",
     "test:prod": "npm run lint:all && npm run test -- --coverage --no-cache",
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
@@ -121,33 +121,6 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "ts-jest"
-    },
-    "testEnvironment": "node",
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/test/"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 95,
-        "lines": 95,
-        "statements": 95
-      }
-    },
-    "collectCoverageFrom": [
-      "src/*.{js,ts}"
-    ]
-  },
   "prettier": {
     "semi": false,
     "singleQuote": true
@@ -156,5 +129,39 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "./tsconfig.test.json",
+        "diagnostics": true
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "coverageDirectory": "coverage/",
+    "coverageReporters": [
+      "lcov",
+      "html",
+      "text-summary"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/test/"
+    ],
+    "testMatch": [
+      "<rootDir>/test/**/?(*.)(spec|test).ts?(x)"
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
+    ],
+    "preset": "ts-jest"
   }
 }

@@ -53,8 +53,8 @@ export function createClient(
   requestConfig: AxiosRequestConfig = {}
 ): DarkSkyClient {
   return {
-    forecast: (request: ForecastRequest, params: RequestParams = {}) =>
-      doRequest(apiToken, request, params, requestConfig),
+    forecast: ({ latitude, longitude }: ForecastRequest, params: RequestParams = {}) =>
+      doRequest(apiToken, { latitude, longitude }, params, requestConfig),
     timeMachine: (request: TimeMachineRequest, params: RequestParams = {}) =>
       doRequest(apiToken, request, params, requestConfig)
   }
