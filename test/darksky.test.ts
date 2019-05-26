@@ -24,9 +24,9 @@ describe('DarkSky', () => {
   })
 
   it('should make a forecast request', async () => {
-    await new DarkSky('token').forecast(42, 24)
+    await new DarkSky('token').forecast(42, -24.32)
 
-    expect(mockAxios.get).toBeCalledWith(expect.stringContaining('42,24'), {})
+    expect(mockAxios.get).toBeCalledWith(expect.stringContaining('42,-24.32'), {})
   })
 
   it('should make forecast request and override default params', async () => {

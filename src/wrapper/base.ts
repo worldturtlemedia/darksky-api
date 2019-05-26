@@ -30,8 +30,6 @@ export interface DarkSkyOptions {
 
   /**
    * Exclude some number of data blocks from the API response.
-   *
-   * @default []
    */
   exclude?: Exclude[]
 

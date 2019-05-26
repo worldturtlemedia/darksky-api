@@ -105,7 +105,7 @@ export class DarkSkyRequestChain extends DarkSkyBase {
    * @param exclude List of datablocks to exclude from the response.
    */
   exclude(...exclude: Exclude[]) {
-    this.requestParams.exclude = [...this.requestParams.exclude!, ...exclude]
+    this.requestParams.exclude = [...(this.requestParams.exclude || []), ...exclude]
     return this
   }
 
@@ -120,12 +120,32 @@ export class DarkSkyRequestChain extends DarkSkyBase {
   }
 
   /**
+   * Helper function for excluding the `currently` data block.
+   *
+   * @returns Chain
+   */
+  excludeCurrently() {
+    this.addExlude(Exclude.CURRENTLY)
+    return this
+  }
+
+  /**
    * Shorthand for excluding all datablocks except for the Minutely.
    *
    * @returns Chain
    */
   onlyMinutely() {
     this.requestParams.exclude = this.excludeAllBut(Exclude.MINUTELY)
+    return this
+  }
+
+  /**
+   * Helper function for excluding the `minutely` data block.
+   *
+   * @returns Chain
+   */
+  excludeMinutely() {
+    this.addExlude(Exclude.MINUTELY)
     return this
   }
 
@@ -144,12 +164,52 @@ export class DarkSkyRequestChain extends DarkSkyBase {
   }
 
   /**
+   * Helper function for excluding the `hourly` data block.
+   *
+   * @returns Chain
+   */
+  excludeHourly() {
+    this.addExlude(Exclude.HOURLY)
+    return this
+  }
+
+  /**
    * Shorthand for excluding all datablocks except for the Daily.
    *
    * @returns Chain
    */
   onlyDaily() {
     this.requestParams.exclude = this.excludeAllBut(Exclude.DAILY)
+    return this
+  }
+
+  /**
+   * Helper function for excluding the `daily` data block.
+   *
+   * @returns Chain
+   */
+  excludeDaily() {
+    this.addExlude(Exclude.DAILY)
+    return this
+  }
+
+  /**
+   * Helper function for excluding the `flags` data block.
+   *
+   * @returns Chain
+   */
+  excludeFlags() {
+    this.addExlude(Exclude.FLAGS)
+    return this
+  }
+
+  /**
+   * Helper function for excluding the `alerts` data block.
+   *
+   * @returns Chain
+   */
+  excludeAlerts() {
+    this.addExlude(Exclude.ALERTS)
     return this
   }
 
@@ -171,6 +231,12 @@ export class DarkSkyRequestChain extends DarkSkyBase {
    */
   private excludeAllBut(include: Exclude): Exclude[] {
     return [...(this.requestParams.exclude || []), ...EXCLUDE_ALL.filter(x => x !== include)]
+  }
+
+  private addExlude(exclude: Exclude) {
+    if (!this.requestParams.exclude) this.requestParams.exclude = []
+
+    this.requestParams.exclude.push(exclude)
   }
 }
 

@@ -55,7 +55,6 @@ export function isString(value: any): boolean {
  * @returns `true` if it is a valid number.
  */
 export function isNumber(value: NumberString): boolean {
-  if (Number.isInteger(value as number)) return true
-
-  return isString(value) && Number.isInteger(parseInt(value as string, 10))
+  const num = parseFloat(value as any)
+  return !isNaN(num) && isFinite(num)
 }

@@ -33,6 +33,7 @@
     "lint:src": "npm run lint -- --project tsconfig.json 'src/**/*.ts'",
     "lint:test": "npm run lint -- --project tsconfig.test.json 'test/**/*.ts'",
     "lint:all": "npm run lint:src && npm run lint:test",
+    "format": "prettier --write '{src,test}/**/*.{ts,json}' '*.md'",
     "predocs": "rimraf docs",
     "docs": "typedoc --out docs --excludeExternals --target es6 --includeDeclarations --excludePrivate --mode modules src",
     "docs:watch": "watch 'yarn docs' ./src",

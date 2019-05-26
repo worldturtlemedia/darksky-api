@@ -89,7 +89,9 @@ export class DarkSky extends DarkSkyBase {
   }
 
   /**
-   * Gets the current weather conditions.
+   * Gets the current weather conditions, excluding all other datablocks.
+   *
+   * Helper function for setting `exclude=minutely,daily,hourly`
    *
    * * Note: Will throw an error if DarkSky doesn't return a `currently` data block for the request.
    *
@@ -110,7 +112,9 @@ export class DarkSky extends DarkSkyBase {
   }
 
   /**
-   * Get the forecast for week.
+   * Get the forecast for week, excluding all other datablocks.
+   *
+   * Helper function for setting `exclude=currently,minutely,hourly`
    *
    * * Note: Will throw an error if DarkSky doesn't return a `daily` data block for the request.
    *
@@ -131,7 +135,9 @@ export class DarkSky extends DarkSkyBase {
   }
 
   /**
-   * Get the forecast for day.
+   * Get the forecast for day, excluding all other datablocks.
+   *
+   * Helper function for setting `exclude=currently,daily,minutely`
    *
    * * Note: Will throw an error if DarkSky doesn't return a `hourly` data block for the request.
    *
@@ -152,7 +158,9 @@ export class DarkSky extends DarkSkyBase {
   }
 
   /**
-   * Get the forecast for hour.
+   * Get the forecast for hour, excluding all other datablocks.
+   *
+   * Helper function for setting `exclude=currently,daily,hourly`
    *
    * * Note: Will throw an error if DarkSky doesn't return a `Minutely` data block for the request.
    *
