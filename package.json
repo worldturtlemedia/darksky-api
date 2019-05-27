@@ -1,5 +1,5 @@
 {
-  "name": "dark-sky-api",
+  "name": "darkskyapi-ts",
   "version": "0.0.0-development",
   "description": "A wrapper for DarkSky.net API written in Typescript",
   "keywords": [
