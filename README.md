@@ -20,7 +20,7 @@ I did my best to correctly add types for all of the supported endpoints. However
 
 ## Warning
 
-DarkSky explicitly forbids CORS so using `dark-sky-api` in the browser will not work, and you should instead setup a proxy server and run it on the background.
+DarkSky explicitly forbids CORS so using `darkskyapi-ts` in the browser will not work, and you should instead setup a proxy server and run it on the background.
 
 > To prevent API key abuse, you should set up a proxy server to make calls to our API behind the scenes. Then you can provide forecasts to your clients without exposing your API key.
 
