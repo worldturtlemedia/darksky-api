@@ -11,6 +11,8 @@ import {
 } from '../types'
 import { DarkSkyBase, DarkSkyOptions } from './base'
 
+export type RequestChain = DarkSkyRequestChain
+
 /**
  * An implementation of DarkSkyBase that allows for chaining method calls to customize the request.
  *
