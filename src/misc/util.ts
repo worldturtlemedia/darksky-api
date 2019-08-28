@@ -1,7 +1,7 @@
 import format from 'date-fns/format'
-import isDate from 'date-fns/is_date'
-import isValid from 'date-fns/is_valid'
-import parse from 'date-fns/parse'
+import isDate from 'date-fns/isDate'
+import isValid from 'date-fns/isValid'
+import parseISO from 'date-fns/parseISO'
 
 import { NumberString, TimeMachineRequest } from '../types'
 import { badRequest } from './errors'
@@ -9,7 +9,7 @@ import { badRequest } from './errors'
 /**
  * Date format string for formatting a Date into a string that DarkSky expects.
  */
-export const DARKSKY_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ssZZ'
+export const DARKSKY_DATE_FORMAT = 'yyyy-MM-ddTHH:mm:ssXX'
 
 /**
  * Takes a string or a Date and formats it to what DarkSky's API is expecting.
@@ -17,7 +17,7 @@ export const DARKSKY_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ssZZ'
  * @param date Date string or object to format using [[DARKSKY_DATE_FORMAT]].
  */
 export function formatDateString(date: string | Date): string {
-  const target: Date = isString(date) ? parse(date) : (date as Date)
+  const target: Date = isString(date) ? parseISO(date as string) : (date as Date)
   if (!isDate(target) || !isValid(target)) {
     throw badRequest(`'${target}' is not a valid Date object.`)
   }

@@ -1,4 +1,4 @@
-import format from 'date-fns/format'
+import { format, parseISO } from 'date-fns'
 
 import { HttpException } from '../src/misc/errors'
 import {
@@ -74,8 +74,8 @@ describe('Misc', () => {
       })
 
       it('should handle a date string', () => {
-        const time = 'May 5 2019'
-        const expected = format(time, DARKSKY_DATE_FORMAT)
+        const time = '2014-02-11T11:30:30'
+        const expected = format(parseISO(time), DARKSKY_DATE_FORMAT)
         const actual = formatTimeMachineTime({ time } as any)
 
         expect(actual).toEqual(expected)
