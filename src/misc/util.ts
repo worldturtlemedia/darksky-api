@@ -9,7 +9,7 @@ import { badRequest } from './errors'
 /**
  * Date format string for formatting a Date into a string that DarkSky expects.
  */
-export const DARKSKY_DATE_FORMAT = 'yyyy-MM-ddTHH:mm:ssXX'
+export const DARKSKY_DATE_FORMAT = `yyyy-MM-dd'T'HH:mm:ssXX`
 
 /**
  * Takes a string or a Date and formats it to what DarkSky's API is expecting.
