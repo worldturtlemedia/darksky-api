@@ -75,8 +75,8 @@ describe('Misc', () => {
 
       it('should handle a date already in the correct format', () => {
         const time = '2014-02-11T11:30:30-0800'
-        const expected = '2014-02-11T11:30:30-0800'
-        const actual = formatTimeMachineTime({ time } as any)
+        const expected = new Date('2014-02-11T11:30:30-0800').toUTCString()
+        const actual = new Date(formatTimeMachineTime({ time } as any) as string).toUTCString()
 
         expect(actual).toEqual(expected)
       })
