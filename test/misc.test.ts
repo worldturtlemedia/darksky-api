@@ -73,9 +73,9 @@ describe('Misc', () => {
         expect(actual).toEqual(expected)
       })
 
-      it('should handle a date string', () => {
-        const time = '2014-02-11T11:30:30'
-        const expected = format(parseISO(time), DARKSKY_DATE_FORMAT)
+      it('should handle a date already in the correct format', () => {
+        const time = '2014-02-11T11:30:30-0800'
+        const expected = '2014-02-11T11:30:30-0800'
         const actual = formatTimeMachineTime({ time } as any)
 
         expect(actual).toEqual(expected)
