@@ -63,7 +63,7 @@
     "commitizen": "4.0.3",
     "concurrently": "4.1.2",
     "coveralls": "3.0.6",
-    "cross-env": "6.0.0",
+    "cross-env": "6.0.2",
     "cz-conventional-changelog": "3.0.2",
     "husky": "3.0.7",
     "jest": "24.9.0",
