@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo:chain": "ts-node -P ../tsconfig.base.json demo_chain.ts --key ",
+    "demo:class": "ts-node -P ../tsconfig.base.json demo_class.ts --key ",
+    "demo:client": "ts-node -P ../tsconfig.base.json demo_client.ts --key "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "darksky-api": "../",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3",
     "yargs": "^15.0.0"
   }
 }
