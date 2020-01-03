@@ -55,8 +55,8 @@
     "date-fns": "^2.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "8.3.3",
-    "@commitlint/config-conventional": "8.3.3",
+    "@commitlint/cli": "8.3.4",
+    "@commitlint/config-conventional": "8.3.4",
     "@types/jest": "24.0.25",
     "@types/node": "12.12.22",
     "colors": "1.4.0",
