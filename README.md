@@ -8,6 +8,12 @@ A wrapper for [DarkSky API](https://darksky.net/dev/docs) written in TypeScript.
 
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/) [![dependencies Status](https://david-dm.org/worldturtlemedia/darksky-api/status.svg)](https://david-dm.org/worldturtlemedia/darksky-api) [![devDependencies Status](https://david-dm.org/worldturtlemedia/darksky-api/dev-status.svg)](https://david-dm.org/worldturtlemedia/darksky-api?type=dev)
 
+# NOTE
+
+**It looks like DarkSky will be shutting down their API in 2021, so this library will not receive anymore feature updates, only security and bugfixes.  See #385 for more.**
+
+---
+
 Usable in node and the browser. If used in a TypeScript project, you will get types, and auto-complete for all of the api responses. You will no longer need to tab back and fourth to the API documentation. Will work in Node or the browser!
 
 This library makes interacting with the DarkSky API a little bit more friendly. It offers promises, request customization, and best of all response types.
