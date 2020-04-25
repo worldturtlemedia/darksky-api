@@ -61,7 +61,7 @@
     "@types/node": "12.12.37",
     "colors": "1.4.0",
     "commitizen": "4.0.4",
-    "concurrently": "5.1.0",
+    "concurrently": "5.2.0",
     "coveralls": "3.1.0",
     "cross-env": "7.0.2",
     "cz-conventional-changelog": "3.1.0",
