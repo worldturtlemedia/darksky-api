@@ -60,7 +60,7 @@
     "@types/jest": "25.2.1",
     "@types/node": "12.12.37",
     "colors": "1.4.0",
-    "commitizen": "4.0.5",
+    "commitizen": "4.1.0",
     "concurrently": "5.2.0",
     "coveralls": "3.1.0",
     "cross-env": "7.0.2",
