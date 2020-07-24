@@ -58,7 +58,7 @@
     "@commitlint/cli": "9.1.1",
     "@commitlint/config-conventional": "9.1.1",
     "@types/jest": "26.0.7",
-    "@types/node": "12.12.52",
+    "@types/node": "12.12.53",
     "colors": "1.4.0",
     "commitizen": "4.1.2",
     "concurrently": "5.2.0",
