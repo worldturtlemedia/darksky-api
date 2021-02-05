@@ -1,0 +1,381 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;client&quot; | darkskyapi-ts</title>
+	<meta name="description" content="Documentation for darkskyapi-ts">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">darkskyapi-ts</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_client_.html">&quot;client&quot;</a>
+				</li>
+			</ul>
+			<h1>Module &quot;client&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_client_.darkskyclient.html" class="tsd-kind-icon">Dark<wbr>Sky<wbr>Client</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_client_.html#createapiurl" class="tsd-kind-icon">createAPIUrl</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_client_.html#createclient" class="tsd-kind-icon">create<wbr>Client</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="_client_.html#createqueryparams" class="tsd-kind-icon">create<wbr>Query<wbr>Params</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-not-exported"><a href="_client_.html#dorequest" class="tsd-kind-icon">do<wbr>Request</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="createapiurl" class="tsd-anchor"></a>
+					<h3>createAPIUrl</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">createAPIUrl<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, __namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>latitude<span class="tsd-signature-symbol">: </span><a href="_types_request_.html#numberstring" class="tsd-signature-type">NumberString</a><span class="tsd-signature-symbol">; </span>longitude<span class="tsd-signature-symbol">: </span><a href="_types_request_.html#numberstring" class="tsd-signature-type">NumberString</a><span class="tsd-signature-symbol">; </span>rest<span class="tsd-signature-symbol">: </span><a href="" class="tsd-signature-type">rest</a><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/worldturtlemedia/darksky-api/blob/85baf0c/src/client.ts#L96">src/client.ts:96</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create the URL for the request which includes the api token, and location.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>token: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Developer API token.</p>
+									</div>
+								</li>
+								<li>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>latitude<span class="tsd-signature-symbol">: </span><a href="_types_request_.html#numberstring" class="tsd-signature-type">NumberString</a><span class="tsd-signature-symbol">; </span>longitude<span class="tsd-signature-symbol">: </span><a href="_types_request_.html#numberstring" class="tsd-signature-type">NumberString</a><span class="tsd-signature-symbol">; </span>rest<span class="tsd-signature-symbol">: </span><a href="" class="tsd-signature-type">rest</a><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>latitude<span class="tsd-signature-symbol">: </span><a href="_types_request_.html#numberstring" class="tsd-signature-type">NumberString</a></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>longitude<span class="tsd-signature-symbol">: </span><a href="_types_request_.html#numberstring" class="tsd-signature-type">NumberString</a></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>rest<span class="tsd-signature-symbol">: </span><a href="" class="tsd-signature-type">rest</a></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>URL string for making the request.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="createclient" class="tsd-anchor"></a>
+					<h3>create<wbr>Client</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Client<span class="tsd-signature-symbol">(</span>apiToken<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, requestConfig<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_client_.darkskyclient.html" class="tsd-signature-type">DarkSkyClient</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/worldturtlemedia/darksky-api/blob/85baf0c/src/client.ts#L52">src/client.ts:52</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Default implementation of ClientFactory for making authorized requests to the DarkSky API.</p>
+								</div>
+								<p>Note: Get your token from <a href="https://darksky.net/dev/account" class="external">https://darksky.net/dev/account</a>.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>apiToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Developer API token.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> requestConfig: <span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol"> = {}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional config to change the way axios makes the request.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_client_.darkskyclient.html" class="tsd-signature-type">DarkSkyClient</a></h4>
+							<p>Client for interacting with the API.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+					<a name="createqueryparams" class="tsd-anchor"></a>
+					<h3>create<wbr>Query<wbr>Params</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Query<wbr>Params<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_request_.requestparams.html" class="tsd-signature-type">RequestParams</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/worldturtlemedia/darksky-api/blob/85baf0c/src/client.ts#L117">src/client.ts:117</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a params object and converts it to an HTTP query parameters string.</p>
+								</div>
+								<pre><code class="language-typescript"><span class="hljs-keyword">const</span> params: RequestParams = { <span class="hljs-attr">exclude</span>: [<span class="hljs-string">&#x27;hourly&#x27;</span>, <span class="hljs-string">&#x27;daily&#x27;</span>], <span class="hljs-attr">lang</span>: <span class="hljs-string">&#x27;en&#x27;</span> }
+<span class="hljs-keyword">const</span> query: <span class="hljs-built_in">string</span> = createQueryParams(params)
+<span class="hljs-comment">// query = &#x27;?exclude=hourly,daily&amp;lang=en&#x27;</span></code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <a href="../interfaces/_types_request_.requestparams.html" class="tsd-signature-type">RequestParams</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Params object to convert into Query parameters.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>A query parameter string.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-not-exported">
+					<a name="dorequest" class="tsd-anchor"></a>
+					<h3>do<wbr>Request</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">do<wbr>Request&lt;R&gt;<span class="tsd-signature-symbol">(</span>apiToken<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, request<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_request_.forecastrequest.html" class="tsd-signature-type">ForecastRequest</a>, params<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_request_.requestparams.html" class="tsd-signature-type">RequestParams</a>, requestConfig<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/worldturtlemedia/darksky-api/blob/85baf0c/src/client.ts#L74">src/client.ts:74</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Make the API request, and add the response headers to the result.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>R<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types_forecast_.forecast.html" class="tsd-signature-type">Forecast</a></h4>
+									<div class="tsd-comment tsd-typography">
+										<p>Type of response that extends Forecast.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>apiToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Developer API token.</p>
+									</div>
+								</li>
+								<li>
+									<h5>request: <a href="../interfaces/_types_request_.forecastrequest.html" class="tsd-signature-type">ForecastRequest</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Forecast request data.</p>
+									</div>
+								</li>
+								<li>
+									<h5>params: <a href="../interfaces/_types_request_.requestparams.html" class="tsd-signature-type">RequestParams</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional query params to add to the request.</p>
+									</div>
+								</li>
+								<li>
+									<h5>requestConfig: <span class="tsd-signature-type">AxiosRequestConfig</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional config to change the way axios makes the request.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Forecast response with the HTTP headers.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="_client_.html">&quot;client&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_darksky_.html">&quot;darksky&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_misc_errors_.html">&quot;misc/errors&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_misc_index_.html">&quot;misc/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_misc_util_.html">&quot;misc/util&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_types_alerts_.html">&quot;types/alerts&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_types_datapoint_.html">&quot;types/datapoint&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_types_flags_.html">&quot;types/flags&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_types_forecast_.html">&quot;types/forecast&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_types_index_.html">&quot;types/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_types_language_.html">&quot;types/language&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_types_request_.html">&quot;types/request&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_types_weather_.html">&quot;types/weather&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_wrapper_base_.html">&quot;wrapper/base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_wrapper_chain_.html">&quot;wrapper/chain&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_wrapper_index_.html">&quot;wrapper/index&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_client_.darkskyclient.html" class="tsd-kind-icon">Dark<wbr>Sky<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_client_.html#createapiurl" class="tsd-kind-icon">createAPIUrl</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_client_.html#createclient" class="tsd-kind-icon">create<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_client_.html#createqueryparams" class="tsd-kind-icon">create<wbr>Query<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-not-exported">
+						<a href="_client_.html#dorequest" class="tsd-kind-icon">do<wbr>Request</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

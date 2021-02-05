@@ -1,0 +1,441 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>darkskyapi-ts</title>
+	<meta name="description" content="Documentation for darkskyapi-ts">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">darkskyapi-ts</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>darkskyapi-ts</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#darksky-api-wrapper" id="darksky-api-wrapper" style="color: inherit; text-decoration: none;">
+					<h1>DarkSky API Wrapper</h1>
+				</a>
+				<p>A wrapper for <a href="https://darksky.net/dev/docs">DarkSky API</a> written in TypeScript.</p>
+				<p><img src="https://img.shields.io/circleci/project/github/worldturtlemedia/darksky-api/master.svg?label=release%20build" alt="CircleCI branch"> <img src="https://img.shields.io/circleci/project/github/worldturtlemedia/darksky-api.svg" alt="CircleCI (all branches)"> <a href="https://coveralls.io/github/worldturtlemedia/darksky-api?branch=master"><img src="https://coveralls.io/repos/github/worldturtlemedia/darksky-api/badge.svg?branch=master" alt="Coverage Status"></a></p>
+				<p><a href="https://badge.fury.io/js/darkskyapi-ts"><img src="https://badge.fury.io/js/darkskyapi-ts.svg" alt="npm version"></a> <img src="https://img.shields.io/github/license/worldturtlemedia/darksky-api.svg" alt="GitHub"> <img src="https://img.shields.io/bundlephobia/minzip/darkskyapi-ts.svg" alt="npm bundle size"></p>
+				<p><a href="https://renovatebot.com/"><img src="https://img.shields.io/badge/renovate-enabled-brightgreen.svg" alt="Renovate enabled"></a> <a href="https://david-dm.org/worldturtlemedia/darksky-api"><img src="https://david-dm.org/worldturtlemedia/darksky-api/status.svg" alt="dependencies Status"></a> <a href="https://david-dm.org/worldturtlemedia/darksky-api?type=dev"><img src="https://david-dm.org/worldturtlemedia/darksky-api/dev-status.svg" alt="devDependencies Status"></a></p>
+				<a href="#note" id="note" style="color: inherit; text-decoration: none;">
+					<h1>NOTE</h1>
+				</a>
+				<p><strong>It looks like DarkSky will be shutting down their API in 2021, so this library will not receive anymore feature updates, only security and bugfixes.  See #385 for more.</strong></p>
+				<hr>
+				<p>Usable in node and the browser. If used in a TypeScript project, you will get types, and auto-complete for all of the api responses. You will no longer need to tab back and fourth to the API documentation. Will work in Node or the browser!</p>
+				<p>This library makes interacting with the DarkSky API a little bit more friendly. It offers promises, request customization, and best of all response types.</p>
+				<p>If there are any features you would like, please feel free to open up an issue.</p>
+				<a href="#note-1" id="note-1" style="color: inherit; text-decoration: none;">
+					<h2>Note</h2>
+				</a>
+				<p>I did my best to correctly add types for all of the supported endpoints. However if you notice an incorrect payload type, or some missing properties, <em>please</em> open up an issue, or submit a pull request.</p>
+				<a href="#warning" id="warning" style="color: inherit; text-decoration: none;">
+					<h2>Warning</h2>
+				</a>
+				<p>DarkSky explicitly forbids CORS so using <code>darkskyapi-ts</code> in the browser will not work, and you should instead setup a proxy server and run it on the background.</p>
+				<blockquote>
+					<p>To prevent API key abuse, you should set up a proxy server to make calls to our API behind the scenes. Then you can provide forecasts to your clients without exposing your API key.</p>
+				</blockquote>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>Add using yarn or npm</p>
+				<pre><code class="language-bash">yarn add darkskyapi-ts</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>Create an account on <a href="https://darksky.net/dev/account">DarkSky.net</a>, then get your API token.</p>
+				<p>There are a couple ways to use this library.</p>
+				<a href="#timemachine-request" id="timemachine-request" style="color: inherit; text-decoration: none;">
+					<h3>TimeMachine request</h3>
+				</a>
+				<p>Any request can be made into a TimeMachine request by passing <code>{ time: &#39;some-timestamp&#39; }</code> into any function that accepts an optional <code>params</code> object.</p>
+				<p>The <code>time</code> property an be any of the following:</p>
+				<ul>
+					<li>Date object.</li>
+					<li>A valid formatted date-string.</li>
+					<li>UNIX timestamp.</li>
+				</ul>
+				<p>Either be a UNIX timestamp or a string formatted as follows:</p>
+				<pre><code class="language-typescript"><span class="hljs-comment">// UNIX timestamp</span>
+{
+  <span class="hljs-attr">time</span>: <span class="hljs-number">1558575452</span>
+}
+
+<span class="hljs-comment">// Date string</span>
+<span class="hljs-comment">// [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS][timezone].</span>
+{
+  <span class="hljs-attr">time</span>: <span class="hljs-string">&#x27;2019-01-01T00:00:00+0400&#x27;</span>
+}</code></pre>
+				<p>The library will try it&#39;s best to parse the Date string you pass in, so you don&#39;t <em>need</em> to supply it in the above format. But for safety its probably best.</p>
+				<blockquote>
+					<p>Timezone should either be omitted (to refer to local time for the location being requested),
+						<code>Z</code> (referring to GMT time), or +[HH][mm] or -[HH][mm] for an offset from GMT
+					in hours and minutes.</p>
+				</blockquote>
+				<a href="#1-darksky-class" id="1-darksky-class" style="color: inherit; text-decoration: none;">
+					<h2>1. DarkSky class</h2>
+				</a>
+				<p>Get instance of the factory. See [demo/demo_class.ts`](<a href="https://github.com/worldturtlemedia/darksky-api/blob/master/demo/demo_class.ts">https://github.com/worldturtlemedia/darksky-api/blob/master/demo/demo_class.ts</a>)</p>
+				<p>Use any of the DarkSky helper functions (see below).</p>
+				<pre><code class="language-typescript"><span class="hljs-comment">// Optional Default options</span>
+<span class="hljs-keyword">const</span> options: DarkSkyOptions = {
+  <span class="hljs-comment">// Optional</span>
+  <span class="hljs-comment">// Anything set here can be overriden when making the request</span>
+
+  <span class="hljs-attr">units</span>: Units.SI,
+  <span class="hljs-attr">lang</span>: Language.FRENCH
+}
+
+<span class="hljs-comment">// Create the api wrapper class</span>
+<span class="hljs-keyword">const</span> darksky = <span class="hljs-keyword">new</span> DarkSky(KEY, options)
+
+<span class="hljs-comment">// Use the wrapper</span>
+
+<span class="hljs-comment">/**
+ * Will get the weekly forecast using a helper function, it excludes all of the datablocks except
+ * for the `daily` one.  If you need more than that you can use `DarkSky.forecast` and pass in
+ * an Exclude array.
+ */</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getWeeklyForecast</span>(<span class="hljs-params">lat: <span class="hljs-built_in">number</span>, lng: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">WeekForecast</span>&gt; </span>{
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-comment">// You can pass options here to override the options set above</span>
+    <span class="hljs-keyword">const</span> result: WeekForecast = <span class="hljs-keyword">await</span> darksky.week(lat, lng, { <span class="hljs-attr">lang</span>: Language.ENGLISH })
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Got forecast for <span class="hljs-subst">${result.latitude}</span>-<span class="hljs-subst">${result.longitude}</span>`</span>)
+    <span class="hljs-keyword">return</span> result
+  } <span class="hljs-keyword">catch</span> (error) {
+    <span class="hljs-comment">// If DarkSky API doesn&#x27;t return a &#x27;daily&#x27; data-block, then this function will throw</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Unable to get the weekly forecast for the chosen location&#x27;</span>)
+  }
+}
+
+;(<span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> forecast = <span class="hljs-keyword">await</span> getWeeklyForecast(<span class="hljs-number">42</span>, <span class="hljs-number">24</span>)
+
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Forecast for tomorrow: <span class="hljs-subst">${forecast.daily.data[<span class="hljs-number">1</span>].temperatureMax}</span>`</span>)
+})()</code></pre>
+				<a href="#2-chaining" id="2-chaining" style="color: inherit; text-decoration: none;">
+					<h2>2. Chaining</h2>
+				</a>
+				<p>You can build a request by using method chaining and a builder pattern.</p>
+				<pre><code class="language-typescript"><span class="hljs-comment">// Using helper function</span>
+<span class="hljs-keyword">import</span> { createRequestChain } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;darksky-api&#x27;</span>
+
+createRequestChain(<span class="hljs-string">&#x27;api-key&#x27;</span>, <span class="hljs-number">42</span>, <span class="hljs-number">24</span>)
+  .extendHourly()
+  .onlyHourly()
+  .excludeFlags()
+  .excludeAlerts()
+  .execute()
+  .then(<span class="hljs-built_in">console</span>.log)
+  .catch(<span class="hljs-built_in">console</span>.log)
+
+<span class="hljs-comment">// Using the DarkSky class</span>
+<span class="hljs-keyword">new</span> DarkSky(<span class="hljs-string">&#x27;api-key&#x27;</span>)
+  .chain(<span class="hljs-number">42</span>, <span class="hljs-number">24</span>)
+  .time(<span class="hljs-string">&#x27;May 05 2019&#x27;</span>) <span class="hljs-comment">// Library will try it&#x27;s best to parse this date string</span>
+  .units(Units.UK)
+  .execute()
+  .then(<span class="hljs-built_in">console</span>.log)
+  .catch(<span class="hljs-built_in">console</span>.log)</code></pre>
+				<a href="#3-manual-darksky-client" id="3-manual-darksky-client" style="color: inherit; text-decoration: none;">
+					<h2>3. Manual DarkSky client</h2>
+				</a>
+				<p>This library also exports a minimal DarkSky wrapper, where you can manually create the requests.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { createClient } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;darksky-api&#x27;</span>
+
+<span class="hljs-keyword">const</span> targetDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1558000000</span> * <span class="hljs-number">1000</span>)
+
+createClient(<span class="hljs-string">&#x27;api-key&#x27;</span>)
+  .timeMachine({ <span class="hljs-attr">latitude</span>: <span class="hljs-number">42</span>, <span class="hljs-attr">longitude</span>: <span class="hljs-number">24</span>, <span class="hljs-attr">time</span>: targetDate }, { <span class="hljs-attr">units</span>: Units.CA })
+  .then(<span class="hljs-built_in">console</span>.log)
+  .catch(<span class="hljs-built_in">console</span>.log)</code></pre>
+				<a href="#darksky-class-helper-methods" id="darksky-class-helper-methods" style="color: inherit; text-decoration: none;">
+					<h2>DarkSky class helper methods</h2>
+				</a>
+				<p>Optional settings when creating a new wrapper:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> DarkSkyOptions {
+  <span class="hljs-comment">/**
+   * Return weather conditions in the requested units.
+   *
+   * <span class="hljs-doctag">@default </span>Units.AUTO
+   */</span>
+  units?: Units
+
+  <span class="hljs-comment">/**
+   * Return summary properties in the desired language.
+   *
+   * <span class="hljs-doctag">@default </span>Language.ENGLISH
+   */</span>
+  lang?: Language
+
+  <span class="hljs-comment">/**
+   * When true, return hour-by-hour data for the next 168 hours, instead of the next 48.
+   *
+   * <span class="hljs-doctag">@default <span class="hljs-variable">false</span></span>
+   */</span>
+  extendHourly?: <span class="hljs-built_in">boolean</span>
+
+  <span class="hljs-comment">/**
+   * Exclude some number of data blocks from the API response.
+   */</span>
+  exclude?: Exclude[]
+
+  <span class="hljs-comment">/**
+   * Optional config to change the way axios makes the request.
+   */</span>
+  requestConfig?: AxiosRequestConfig
+}</code></pre>
+				<p>All helper methods require the location <code>latitude: number, longitude: number</code>, and can take an optional settings object.</p>
+				<p>If you need the forecast for a specific date and time, you can use DarkSky&#39;s TimeMachine functionality by passing a <code>time</code> property to each helper function, example:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">new</span> DarkSky(<span class="hljs-string">&#x27;api-key&#x27;</span>).week(<span class="hljs-number">42</span>, <span class="hljs-number">24</span>, { <span class="hljs-attr">time</span>: <span class="hljs-string">&#x27;May 5 2018&#x27;</span> })</code></pre>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th align="center">Optional</th>
+							<th align="right">Returns</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>chain()</code></td>
+							<td align="center"><code>RequestParams</code></td>
+							<td align="right"><code>DarkSkyRequestChain</code></td>
+						</tr>
+						<tr>
+							<td><code>forecast()</code></td>
+							<td align="center"><code>RequestParams</code></td>
+							<td align="right"><code>Forecast</code></td>
+						</tr>
+						<tr>
+							<td><code>timeMachine()</code></td>
+							<td align="center"><code>RequestParams</code></td>
+							<td align="right"><code>Forecast</code></td>
+						</tr>
+						<tr>
+							<td><code>current()</code></td>
+							<td align="center"><code>RequestParams</code></td>
+							<td align="right"><code>CurrentForecast</code></td>
+						</tr>
+						<tr>
+							<td><code>week()</code></td>
+							<td align="center"><code>RequestParams</code></td>
+							<td align="right"><code>WeekForecast</code></td>
+						</tr>
+						<tr>
+							<td><code>day()</code></td>
+							<td align="center"><code>RequestParams</code></td>
+							<td align="right"><code>DayForecast</code></td>
+						</tr>
+						<tr>
+							<td><code>hour()</code></td>
+							<td align="center"><code>RequestParams</code></td>
+							<td align="right"><code>HourForecast</code></td>
+						</tr>
+				</tbody></table>
+				<p><code>chain()</code> is a special function that allows you to create a <code>DarkSkyRequestChain</code> to build your own request, see the example above.</p>
+				<a href="#demo" id="demo" style="color: inherit; text-decoration: none;">
+					<h2>Demo</h2>
+				</a>
+				<p>Demos are available in the <code>demo/</code> folder. You will <em>NEED</em> a DarkSky API key for the demos to work. Then you can either set it in your env, or pass it as an CLI argument. See the example below.</p>
+				<p><strong>Note:</strong> I recommend <a href="https://code.visualstudio.com/">VSCode</a> for viewing and editing the examples. It will give you great intellisense about the library.</p>
+				<p>Follow the steps below:</p>
+				<pre><code class="language-bash"><span class="hljs-comment"># Get a API token from DarkSky.net</span>
+
+<span class="hljs-comment"># Either set it in your env</span>
+<span class="hljs-built_in">export</span> DARKSKY_KEY=your-token
+
+<span class="hljs-comment"># or pass it as a cli argument</span>
+<span class="hljs-comment"># npx ts-node --project ../tsconfig.base.json demo_[demo name].ts --key your-key</span>
+
+<span class="hljs-comment"># Build the library</span>
+yarn &amp;&amp; yarn build
+
+<span class="hljs-comment"># Change into demo folder and install dependencies</span>
+<span class="hljs-built_in">cd</span> demo
+yarn
+
+<span class="hljs-comment"># Typescript example:</span>
+npx ts-node --project ../tsconfig.base.json demo_[demo name].ts
+
+<span class="hljs-comment"># To view Browser example, first build project</span>
+yarn build
+
+<span class="hljs-comment"># Then open `index.html` in your browser</span></code></pre>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<p>See <a href="https://github.com/worldturtlemedia/darksky-api/blob/master/CONTRIBUTING.md">CONTRIBUTING</a>.</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<pre><code class="language-text">MIT License
+
+Copyright (c) 2019 WorldTurtleMedia
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_client_.html">&quot;client&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_darksky_.html">&quot;darksky&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_misc_errors_.html">&quot;misc/errors&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_misc_index_.html">&quot;misc/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_misc_util_.html">&quot;misc/util&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_alerts_.html">&quot;types/alerts&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_datapoint_.html">&quot;types/datapoint&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_flags_.html">&quot;types/flags&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_forecast_.html">&quot;types/forecast&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_index_.html">&quot;types/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_language_.html">&quot;types/language&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_request_.html">&quot;types/request&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_types_weather_.html">&quot;types/weather&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_wrapper_base_.html">&quot;wrapper/base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_wrapper_chain_.html">&quot;wrapper/chain&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_wrapper_index_.html">&quot;wrapper/index&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
