@@ -1,12 +1,14 @@
 # DarkSky API Wrapper
 
+## Archived
+
+**This library has been archived because of DarkSky shutting down.**
+
+**If you need a service/API that is similar to DarkSky, I would recommend [OpenWeatherMap onecall](https://openweathermap.org/api/one-call-api). You can find a smiliar library for that API [here](https://github.com/worldturtlemedia/openweathermap-onecall).**
+
+=====================================
+
 A wrapper for [DarkSky API](https://darksky.net/dev/docs) written in TypeScript.
-
-![CircleCI branch](https://img.shields.io/circleci/project/github/worldturtlemedia/darksky-api/master.svg?label=release%20build) ![CircleCI (all branches)](https://img.shields.io/circleci/project/github/worldturtlemedia/darksky-api.svg) [![Coverage Status](https://coveralls.io/repos/github/worldturtlemedia/darksky-api/badge.svg?branch=master)](https://coveralls.io/github/worldturtlemedia/darksky-api?branch=master)
-
-[![npm version](https://badge.fury.io/js/darkskyapi-ts.svg)](https://badge.fury.io/js/darkskyapi-ts) ![GitHub](https://img.shields.io/github/license/worldturtlemedia/darksky-api.svg) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/darkskyapi-ts.svg)
-
-[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/) [![dependencies Status](https://david-dm.org/worldturtlemedia/darksky-api/status.svg)](https://david-dm.org/worldturtlemedia/darksky-api) [![devDependencies Status](https://david-dm.org/worldturtlemedia/darksky-api/dev-status.svg)](https://david-dm.org/worldturtlemedia/darksky-api?type=dev)
 
 # NOTE
 
